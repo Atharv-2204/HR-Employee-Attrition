@@ -1,17 +1,17 @@
-# 👥 HR Attrition Analysis — Microsoft Fabric
+# HR Attrition Analysis (Microsoft Fabric)
 
-An interactive HR attrition dashboard built on **Microsoft Fabric**, analyzing 1,470 employee records to uncover why employees leave — with **Row-Level Security** enforced at the data layer so each Region Manager only sees their own team's data.
+An interactive HR attrition dashboard built on **Microsoft Fabric**, analyzing 1,470 employee records to uncover why employees leave with **Row-Level Security** enforced at the data layer so each Region Manager only sees their own team's data.
 
 ---
 
-## 📊 Dashboard Preview
+## Dashboard Preview
 
 ![Overview Page](screenshots/01_overview.png)
 ![Deep Dive Page](screenshots/02_deep_dive.png)
 
 ---
 
-## 🎯 Project Objective
+## Project Objective
 
 To move beyond a single "16% attrition rate" headline number and build a governed, secure BI solution that answers:
 - **Which** departments, job roles, and salary bands have the highest attrition?
@@ -20,19 +20,19 @@ To move beyond a single "16% attrition rate" headline number and build a governe
 
 ---
 
-## 🏗️ Architecture Overview
+## Architecture Overview
 
 ```
-┌──────────────┐   ┌──────────────────┐   ┌──────────────────┐   ┌──────────────────┐
-│  IBM HR CSV  │──▶│  Fabric Lakehouse │──▶│  Semantic Model   │──▶│  Power BI Report │
-│  (1,470 rows)│   │  (lh_HR)          │   │  (HR semantic)    │   │  (2 pages, live) │
-└──────────────┘   └──────────────────┘   └──────────────────┘   └──────────────────┘
+┌──────────────┐    ┌──────────────────┐   ┌──────────────────┐    ┌──────────────────┐
+│  IBM HR CSV  │──▶│ Fabric Lakehouse │──▶│  Semantic Model  │──▶│  Power BI Report │
+│ (1,470 rows) │    │  (lh_HR)         │   │  (HR semantic)   │    │  (2 pages, live) │
+└──────────────┘    └──────────────────┘   └──────────────────┘    └──────────────────┘
                               │
                               ▼
                     ┌──────────────────────┐
-                    │  Row/Column-Level     │
-                    │  Security (RLS/CLS)   │
-                    │  via DefaultReader     │
+                    │  Row/Column-Level    │
+                    │  Security (RLS/CLS)  │
+                    │  via DefaultReader   │
                     └──────────────────────┘
 ```
 
@@ -40,7 +40,7 @@ Unlike a typical imported Power BI file, this report holds a **live connection**
 
 ---
 
-## 📁 Fabric Workspace Structure
+## Fabric Workspace Structure
 
 | Item | Type | Purpose |
 |---|---|---|
@@ -51,7 +51,7 @@ Unlike a typical imported Power BI file, this report holds a **live connection**
 
 ---
 
-## 🔐 Security Implementation
+## Security Implementation
 
 A `DefaultReader` role was configured directly on the Lakehouse table with:
 - **Read** permission, **Grant** type access
@@ -61,7 +61,7 @@ This means security is enforced **once, at the data source**, and automatically 
 
 ---
 
-## 📁 Report Structure
+## Report Structure
 
 | Page | Focus | Key visuals |
 |---|---|---|
@@ -72,7 +72,7 @@ Both pages share a common filter bar (**Department**, **Gender**, **Salary Band*
 
 ---
 
-## 🗄️ Dataset
+## Dataset
 
 **Source:** [IBM HR Analytics Employee Attrition & Performance](https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset) — a widely-used, industry-recognized synthetic HR dataset
 
@@ -85,7 +85,7 @@ Both pages share a common filter bar (**Department**, **Gender**, **Salary Band*
 
 ---
 
-## 🔑 Key Findings
+## Key Findings
 
 1. **Overall attrition rate is 16.1%** (237 of 1,470 employees), sitting just above the stated industry benchmark of 10–15%.
 2. **Sales has the highest departmental attrition at 20.6%**, followed by Human Resources (19.0%); Research & Development is comparatively stable at 13.8%.
@@ -97,7 +97,7 @@ Both pages share a common filter bar (**Department**, **Gender**, **Salary Band*
 
 ---
 
-## 🛠️ Skills Demonstrated
+## Skills Demonstrated
 
 | Category | Skill |
 |---|---|
@@ -110,7 +110,7 @@ Both pages share a common filter bar (**Department**, **Gender**, **Salary Band*
 
 ---
 
-## 🚀 How to Reproduce This Project
+## How to Reproduce This Project
 
 1. Create a Microsoft Fabric workspace (free trial available via Power BI / Fabric)
 2. Create a Lakehouse named `lh_HR`
@@ -122,7 +122,7 @@ Both pages share a common filter bar (**Department**, **Gender**, **Salary Band*
 
 ---
 
-## 💡 What I Learned
+## What I Learned
 
 - How to implement Row-Level and Column-Level Security directly at the Lakehouse layer in Fabric, so access control is enforced once at the data source rather than duplicated across multiple reports.
 - The difference between a standard imported Power BI report and a "thin" report with a live connection to a shared semantic model — and why the live approach keeps the report perpetually in sync with the underlying data.
@@ -131,13 +131,11 @@ Both pages share a common filter bar (**Department**, **Gender**, **Salary Band*
 
 ---
 
-## 🙋 About
+## About
 
-Built by **[Your Name]** as part of a data analyst portfolio project.
+Built by **Atharv Dhole** as part of a data analyst portfolio project.
 
-- 🔗 LinkedIn: [your-linkedin-url]
-- 📧 Email: your@email.com
+- LinkedIn: https://linkedin.com/in/atharv-dhole
+- Email: atharvdhole22@email.com
 
 ---
-
-*If you found this useful, please ⭐ star the repository!*
